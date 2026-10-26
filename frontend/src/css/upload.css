@@ -1,0 +1,140 @@
+:root {
+  /* form */
+  --resume-form-width: 450px;
+  --resume-form-height: 295px;
+
+  /* color */
+  --resume-backround-color: #fbfdff;
+  --resume-backround-hover-color: #f5f9ff;
+  --resume-border-color: #c7d9f7;
+  --resume-border-hover-color: #3478f6;
+
+  /* button */
+  --resume-upload-btn-height: 45px;
+  --resume-upload-btn-zIndex: 123;
+
+  --phone-section-height: 40px;
+
+  /* caution */
+  --resume-cation-color: gray;
+
+  /* loading */
+  --loading-box-zIndex: 124;
+}
+
+.upload_box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+
+  form {
+    width: var(--resume-form-width);
+    display: flex;
+  }
+
+  .phone_form {
+    height: var(--phone-section-height);
+    border: 1px solid var(--resume-cation-color);
+    background-color: var(--resume-backround-hover-color);
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    &:hover,
+    &:focus-within {
+      border-color: var(--blue);
+    }
+
+    input {
+      background-color: inherit;
+      flex: 1;
+      padding: 0 10px;
+      border: none;
+    }
+
+    button {
+      background-color: inherit;
+      border: none;
+      font-weight: bold;
+      width: var(--phone-section-height);
+      font-size: 17px;
+
+      &:hover {
+        background-color: var(--blue);
+        color: var(--white);
+      }
+    }
+  }
+
+  .resume_form {
+    height: var(--resume-form-height);
+    overflow: hidden;
+    border-radius: 14px;
+    border: 2px dashed var(--resume-border-color);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 8px;
+    background: var(--resume-backround-color);
+    transition: 0.2s;
+
+    &:hover {
+      border-color: var(--resume-border-hover-color);
+      background: var(--resume-backround-hover-color);
+    }
+
+    input[type="file"] {
+      cursor: pointer;
+      opacity: 0;
+      position: absolute;
+      /* border: 1px solid red; */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .resume_upload_icon {
+      font-size: 74px;
+      color: var(--blue);
+      font-weight: bold;
+    }
+
+    .resume_text {
+      font-size: 18px;
+      font-weight: bold;
+      /* margin: 10px 0; */
+    }
+
+    .resume_cautions {
+      font-size: 15px;
+      color: var(--resume-cation-color);
+      margin-bottom: 16px;
+    }
+
+    button {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--resume-upload-btn-height);
+      font-size: 16px;
+      z-index: var(--resume-upload-btn-zIndex);
+      background-color: var(--blue);
+      border: none;
+      font-weight: bold;
+      transition: 0.2s;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

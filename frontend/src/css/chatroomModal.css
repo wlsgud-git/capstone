@@ -1,0 +1,163 @@
+:root {
+  /* modal */
+  --chatroom-modal-width: 450px;
+  /* --chatroom-modal-height: 300px; */
+  --chatroom-modal-nav-height: 40px;
+  --chatroom-modal-content-gap: 12px;
+  --chatroom-modal-padding: 0 24px;
+  --chatroom-modal-btn-section-height: 60px;
+}
+
+/* 모달부분 */
+.chatroom_modal {
+  width: var(--chatroom-modal-width);
+  background-color: var(--white);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  .chatroom_modal_form,
+  .chatroom_modal_nav {
+    width: 100%;
+  }
+
+  /* nav */
+  .chatroom_modal_nav {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--chatroom-modal-padding);
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+
+    .chatroom_modal_nav_intro {
+      display: flex;
+      flex-direction: column;
+
+      .chatroom_modal_nav_intro_main {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 8px;
+
+        i {
+          margin-right: 10px;
+        }
+      }
+      .chatroom_modal_nav_intro_sub {
+        font-size: 14px;
+        color: var(--gray);
+      }
+    }
+
+    .chatroom_modal_close_btn {
+      cursor: pointer;
+      border: none;
+      display: block;
+      outline: none;
+      /* border: 1px solid red; */
+      font-size: 17px;
+      color: var(--gray);
+      background-color: inherit;
+
+      &:hover {
+        color: var(--red);
+      }
+    }
+  }
+
+  /* form */
+  .chatroom_modal_form {
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* 정보 기입 박스 */
+    .chatroom_modal_info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: var(--chatroom-modal-padding);
+
+      /* 정보 기입 칸 */
+      .chatroom_modal_input_box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 12px;
+        /* border: 1px solid blue; */
+
+        label {
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 7px;
+        }
+
+        input {
+          border-radius: 6px;
+          border: 2px solid #e5e7eb;
+          outline: none;
+          padding: 12px 8px;
+
+          &:focus {
+            border-color: var(--blue);
+          }
+        }
+      }
+
+      .chatroom_modal_info_sub_text {
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        /* border: 1px solid red; */
+
+        i {
+          margin-right: 10px;
+          font-size: 16px;
+        }
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+
+    /* 버튼 */
+    .chatroom_modal_btn {
+      width: 100%;
+      margin-top: 20px;
+      border-top: 1px solid var(--gray);
+      height: var(--chatroom-modal-btn-section-height);
+      line-height: var(--chatroom-modal-btn-section-height);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: var(--chatroom-modal-padding);
+
+      button {
+        margin: 0 4px;
+        width: 90px;
+        height: 65%;
+        background-color: inherit;
+        border-radius: 10px;
+        border: 1px solid rgb(183, 175, 175);
+        font-weight: 500;
+      }
+
+      .chatroom_modal_cancle_btn:hover {
+        background-color: var(--red);
+        color: var(--white);
+      }
+
+      .chatroom_modal_create_btn {
+        background-color: var(--black);
+        color: var(--white);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

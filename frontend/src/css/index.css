@@ -1,0 +1,19 @@
+:root {
+  /* login */
+
+  /* signup */
+  --signup-box-width: 350px;
+
+  /* color */
+  --main-color: #0cdb58;
+  --red: rgb(224, 24, 24);
+  --black: rgb(17, 16, 16);
+  --gray: rgb(106, 102, 102);
+  --white: #fff;
+  --blue: #3478f6;
+  --transparent: rgba(0, 0, 0, 0.3);
+
+  --question-icon-background-color: linear-gradient(135deg, #4f8cff, #665cff);
+}
+
+/* 780px */

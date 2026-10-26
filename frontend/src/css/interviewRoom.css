@@ -1,0 +1,379 @@
+:root {
+  /* color */
+  --interview-container-color: rgba(0, 0, 0, 0.015);
+
+  --question-icon-background-color: linear-gradient(135deg, #4f8cff, #665cff);
+  --question-text-color: #183b75;
+
+  --answer-border-color: #fcfdff;
+  --answer-border-hover-color: #6684ff;
+
+  --feedback-loading-background-color: #f3f6ff;
+  --feedback-loading-border-color: #c9d9ff;
+  --feedback-loading-icon-background-color: #e0e9ff;
+  --feedback-loading-main-text-color: #345ce8;
+  --feedback-loading-sub-text-color: #7183a2;
+
+  --feedback-background-color: #f0fbf8;
+  --feedback-border-color: #9ce8d9;
+  --feedback-icon-background-color: #39bda8;
+  --feedback-main-text-color: #159a83;
+  --feedback-sub-text-color: #7183a2;
+  --feedback-box-border-color: #bcede5;
+  /* size */
+  --room-nav-height: 50px;
+
+  --interview-chatroom-max-width: 600px;
+
+  --question-box-height: 340px;
+  --question-icon-size: 40px;
+  --question-text-size: 16px;
+  --question-main-width: 94%;
+  --question-btn-size: 3px;
+
+  /* time */
+  --toggle-time: 0.3s;
+
+  /* gap */
+  --interview-box-gap: 10px;
+
+  --question-box-gap: 10px;
+  --question-input-box-padding: 10px;
+
+  --answer-box-padding: 0 24px;
+
+  /* // 대기 css
+대기 카드 배경	#F3F6FF
+대기 카드 테두리	#C9D9FF
+로봇 아이콘 배경	#E0E9FF
+상태 제목	#345CE8
+설명 텍스트	#7183A2
+로딩 애니메이션	#527BFF */
+}
+
+.interview_box {
+  width: 100%;
+  max-width: var(--interview-chatroom-max-width);
+  height: 100%;
+  /* position: relative; */
+  /* background-color: var(--white); */
+  display: flex;
+  flex-direction: column;
+
+  /* color: var(--white); */
+  /* padding: 20px 10px; */
+
+  /* nav */
+  .interview_room_nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+    padding: var(--interview-box-gap);
+    width: 100%;
+    /* left: 100%;
+    transform: translateX(-50%); */
+    z-index: 132;
+    overflow: hidden;
+    max-width: var(--interview-chatroom-max-width);
+    height: var(--room-nav-height);
+    border-bottom: 1px solid var(--interview-divide-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .room_objective {
+      font-size: 23px;
+      font-weight: 600;
+    }
+
+    .job_nav {
+      padding: 6px 18px;
+      border: 2px solid var(--blue);
+      border-radius: 8px;
+      font-weight: bold;
+      color: var(--blue);
+      background-color: inherit;
+
+      &:hover {
+        background-color: var(--blue);
+        color: var(--white);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .question_ul {
+    display: flex;
+    padding: 20px 10px;
+    /* margin-top: var(--room-nav-height); */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100% - var(--room-nav-height));
+
+    & > .question-card {
+      margin-top: var(--question-box-gap);
+
+      &:last-child {
+        margin-bottom: var(--question-box-gap);
+      }
+    }
+
+    .question_add_box {
+      width: 100%;
+      margin: 25px 0;
+      text-align: center;
+
+      .question_loading_box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          margin-left: 15px;
+        }
+      }
+
+      .question_add_btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--blue);
+        color: var(--white);
+        cursor: pointer;
+        border: 1px solid var(--blue);
+        font-size: 17px;
+
+        &:hover {
+          background-color: #345ce8;
+        }
+      }
+    }
+  }
+}
+
+/* 전체 리스트 */
+.question-card {
+  width: 100%;
+  background-color: var(--white);
+  border: 1px solid #dce6fa;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(67, 97, 238, 0.08);
+
+  /* 헤더부분 */
+  .question_header {
+    display: flex;
+    border: none;
+    padding: var(--interview-box-gap);
+    background: #f5f8ff;
+    position: relative;
+    border-bottom: 1px solid #e5ecfa;
+    border-radius: 16px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #eaf0ff;
+    }
+
+    &::before {
+      content: "";
+      width: calc(var(--question-btn-size) * 2);
+      height: calc(var(--question-btn-size) * 2);
+      position: absolute;
+      top: calc((var(--question-text-size) / 2) + var(--interview-box-gap));
+      /* top: var(--interview-box-gap); */
+      right: calc(
+        ((100% - var(--question-main-width)) / 2) +
+          (var(--question-btn-size) / 2)
+      );
+      transition: transform var(--toggle-time);
+      border-bottom: var(--question-btn-size) solid var(--question-text-color);
+      border-right: var(--question-btn-size) solid var(--question-text-color);
+      transform: rotate(45deg);
+    }
+
+    &.open::before {
+      transform: rotate(225deg);
+    }
+
+    .question_header_main {
+      display: flex;
+      align-items: start;
+      width: var(--question-main-width);
+
+      .question-icon {
+        width: var(--question-icon-size);
+        height: var(--question-icon-size);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--question-icon-background-color);
+        color: var(--white);
+        font-size: 21px;
+        font-weight: 700;
+        margin-right: 10px;
+      }
+
+      .question-text {
+        flex: 1;
+        color: var(--question-text-color);
+        font-size: var(--question-text-size);
+        font-weight: 700;
+        text-align: start;
+        /* border: 1px solid red; */
+      }
+    }
+  }
+
+  /* 답변 박스 */
+  .answer_section {
+    padding: var(--answer-box-padding);
+    background: var(--white);
+    display: grid;
+    transition: grid-template-rows var(--toggle-time) ease;
+
+    .answer_content {
+      min-height: 0;
+      min-width: 0;
+      overflow: hidden;
+
+      /* 답변 부분 */
+      .answer_form {
+        /* border: 1px solid; */
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: var(--question-box-height);
+        margin: 24px 0;
+
+        .answer-input {
+          width: 100%;
+          flex: 1;
+          padding: var(--question-input-box-padding);
+          background: var(--answer-border-color);
+
+          border: 2px solid #d8e3fa;
+          border-radius: 14px;
+          color: var(--black);
+          font-size: 16px;
+          resize: none;
+          outline: none;
+
+          transition:
+            border-color var(--toggle-time) ease,
+            box-shadow var(--toggle-time) ease;
+
+          &:focus {
+            border-color: var(--answer-border-hover-color);
+            box-shadow: 0 0 0 4px rgba(102, 132, 255, 0.12);
+          }
+        }
+
+        /* 답변 버튼 부분 */
+        .submit_button {
+          display: block;
+          margin: 16px 0 0 auto;
+
+          padding: 8px 10px;
+
+          border: none;
+          border-radius: 12px;
+
+          background: #aebdf2;
+          color: #ffffff;
+
+          font-size: 16px;
+          font-weight: 600;
+
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          &:not(:disabled) {
+            background: linear-gradient(135deg, #4f8cff, #665cff);
+          }
+
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+          }
+        }
+      }
+
+      /* 피드백 */
+      .feedback_box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 24px;
+        padding: 8px;
+        border-radius: 6px;
+
+        /* 피드백 헤더 부분 */
+        .feedback_header {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          /* padding: 8px; */
+          border-radius: 8px;
+          /* background-color: var(--feedback-loading-background-color);
+          border: 1px solid var(--feedback-loading-border-color); */
+
+          .feedback_loading_box {
+            flex: 1;
+            display: flex;
+            align-items: center;
+
+            .feedback_header_icon {
+              min-width: 40px;
+              min-height: 40px;
+              border-radius: 50%;
+              color: var(--blue);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 8px;
+              background-color: var(--feedback-loading-icon-backround-color);
+            }
+
+            .feedback_header_text_box {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+
+              /* .feedback_loading_main_text {
+                color: var(--feedback-loading-main-text-color);
+              } */
+              .feedback_loading_sub_text {
+                font-size: 14px;
+                color: var(--feedback-loading-sub-text-color);
+              }
+            }
+          }
+        }
+
+        .feedback_ul {
+          margin-top: 8px;
+          flex-direction: column;
+
+          li {
+            width: 100%;
+            border: 1px solid var(--feedback-border-color);
+            margin: 2px 0;
+            padding: 6px;
+            background-color: var(--white);
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
