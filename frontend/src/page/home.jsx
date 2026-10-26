@@ -45,7 +45,6 @@ export const Home = () => {
     mutationFn: (id) => chat_service.deleteChatroom(id),
     onSuccess: (res) => {
       queryClient.invalidateQueries({ queryKey: ["chatrooms"] }); // 목록 자동 갱신
-      setCurrent((c) => ({ ...c, index: null }));
       navigate("/");
     },
     onError: (err) => {
