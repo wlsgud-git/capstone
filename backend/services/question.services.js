@@ -1,5 +1,5 @@
 import { QuestionData } from "../data/question.data.js";
-import { extractJson } from "../middleware/auth.middleware.js";
+import { extractJson } from "../middleware/json.middleware.js";
 import { aiPlay } from "../utils/ai.utils.js";
 import { AuthServices } from "./auth.services.js";
 

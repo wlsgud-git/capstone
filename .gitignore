@@ -2,3 +2,8 @@ node_modules/
 
 .env
 .env.*
+
+# Kubernetes
+/kubernetes/backend/secret.yaml
+/kubernetes/frontend/secret.yaml
+/kubernetes/sql/secret.yaml

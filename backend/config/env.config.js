@@ -20,6 +20,10 @@ export let config = {
     port: required("DB_PORT"),
   },
 
+  jwt: {
+    secret_key: required("JWT_SECRET_KEY"),
+  },
+
   session: {
     text: required("SESSION_TEXT"),
   },

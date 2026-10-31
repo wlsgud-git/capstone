@@ -3,7 +3,7 @@ import { AuthData } from "../data/auth.data.js";
 import { createjwt } from "../utils/jwt.utils.js";
 import { compareText } from "../utils/bcrypt.utils.js";
 import { aiPlay } from "../utils/ai.utils.js";
-import { extractJson } from "../middleware/auth.middleware.js";
+import { extractJson } from "../middleware/json.middleware.js";
 
 export const AuthServices = {
   // 이력서 업로드

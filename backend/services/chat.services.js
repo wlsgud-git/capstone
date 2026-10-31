@@ -1,7 +1,4 @@
 import { ChatData } from "../data/chat.data.js";
-import { extractJson } from "../middleware/auth.middleware.js";
-import { aiPlay } from "../utils/ai.utils.js";
-import { AuthServices } from "./auth.services.js";
 
 export const ChatServices = {
   // 채팅방 관련 ------------------------------------------------

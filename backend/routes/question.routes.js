@@ -6,9 +6,9 @@ import { questionControl } from "../controls/question.controls.js";
 const router = express.Router();
 
 // 질문관련
-router.get("/", checkSession, questionControl.getQuestions);
-router.post("/", checkSession, questionControl.createQuestions);
-router.post("/feedback", checkSession, questionControl.getFeedback);
+router.get("/", authMiddleware, questionControl.getQuestions);
+router.post("/", authMiddleware, questionControl.createQuestions);
+router.post("/feedback", authMiddleware, questionControl.getFeedback);
 // router.get("/room/:chat_id", authMiddleware, ChatControl.getMessages);
 // router.post("/question", authMiddleware, ChatControl.sendQuestion);
 

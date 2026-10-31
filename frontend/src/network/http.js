@@ -5,7 +5,7 @@ import axios from "axios";
 
 export class HttpClient {
   constructor() {
-    this.baseURL = "http://localhost:3000";
+    this.baseURL = import.meta.env.VITE_API_URL;
     this.client = axios.create({
       baseURL: this.baseURL,
       headers: {
@@ -23,7 +23,6 @@ export class HttpClient {
         let status = error.response?.status;
 
         if (status === 401) {
-          console.log("인증정보 없음");
           localStorage.removeItem("user");
           window.location = "/resume";
           unauthorizedHandlers.forEach((fn) => fn());

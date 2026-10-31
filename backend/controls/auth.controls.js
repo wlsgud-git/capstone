@@ -1,5 +1,7 @@
 import { AuthServices } from "../services/auth.services.js";
 import fs from "fs";
+import { accessTokenUpdate } from "../utils/cookie.utils.js";
+import { createjwt } from "../utils/jwt.utils.js";
 
 export const AuthControl = {
   // 이력서 업로드
@@ -12,7 +14,10 @@ export const AuthControl = {
         mimeType: "application/pdf",
         data: pdfBase64,
       });
-      req.session.phone_num = user.phone_num;
+
+      let token = await createjwt({ phone_num: user.phone_num });
+      accessTokenUpdate(res, token);
+
       res.status(200).json({ user });
     } catch (error) {
       res.status(500).json({ err: error });
@@ -23,7 +28,9 @@ export const AuthControl = {
     let { phone_num } = req.body;
     try {
       let user = await AuthServices.getUserByPhone(phone_num);
-      req.session.phone_num = user.phone_num;
+
+      let token = await createjwt({ phone_num: user.phone_num });
+      accessTokenUpdate(res, token);
 
       res.status(200).json({ user });
     } catch (error) {
