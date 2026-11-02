@@ -13,11 +13,11 @@ export let config = {
   },
 
   database: {
-    user: required("DB_USER"),
-    password: required("DB_PASSWORD"),
-    host: required("DB_HOST"),
-    database: required("DB_DATABASE"),
-    port: required("DB_PORT"),
+    user: required("MYSQL_USER"),
+    password: required("MYSQL_PASSWORD"),
+    host: required("MYSQL_HOST"),
+    database: required("MYSQL_DATABASE"),
+    port: required("MYSQL_PORT"),
   },
 
   jwt: {

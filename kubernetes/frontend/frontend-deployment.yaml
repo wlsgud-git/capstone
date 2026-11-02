@@ -19,10 +19,10 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: my-frontend:v1
+          image: my-frontend:v2
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 3000
+            - containerPort: 5173
 
           envFrom:
             - configMapRef:

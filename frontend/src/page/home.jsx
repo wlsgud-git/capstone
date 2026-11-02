@@ -72,7 +72,7 @@ export const Home = () => {
         {/* 로고 */}
         <div className="logo_section">
           <span className="logo" onClick={() => navigate("/")}>
-            <i className="fa-solid fa-robot"></i>AI면접봇
+            <i className="fa-solid fa-robot"></i>AI면접봉
           </span>
 
           <button onClick={() => setSidebarOpen(!sidebarOpen)}>

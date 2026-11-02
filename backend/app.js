@@ -8,6 +8,7 @@ import { corsOption } from "./config/cors.config.js";
 import cors from "cors";
 import session from "express-session";
 import { sessionOption } from "./config/session.config.js";
+import { config } from "./config/env.config.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -38,5 +39,6 @@ app.get("/{*splat}", (req, res) => {
 });
 
 app.listen(port, () => {
+  console.log(config.http.client_host);
   console.log(`서버 실행 중: http://localhost:${port}`);
 });

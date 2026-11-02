@@ -41,3 +41,15 @@ port: 서비스에서 거치는 port번호
 targetport: Pod에서거치는 port번호 
 
 nodeport -> port -> targetPort
+
+현 pod ------------------------------------
+backend-deployment-6db94fd9c8-dkgtn   1/1     Running   0          21h
+backend-deployment-6db94fd9c8-w5vkl   1/1     Running   0          21h
+frontend-deployment-6b6bd9bfb-9w4rs   1/1     Running   0          21h
+frontend-deployment-6b6bd9bfb-sj7rk   1/1     Running   0          21h
+mysql-deployment-7f49bbd4f7-mk7cc     1/1     Running   0          23h
+
+현 pod port-forward 명령어 ------------------------------------
+frontend: kubectl port-forward service/frontend-service 30000:5173
+backend: kubectl port-forward service/backend-service 3000:3000
+mysql: kubectl port-forward service/mysql-service 3307:3306
