@@ -5,7 +5,7 @@
 
 $DOCKER_USER = "dirjins"
 $IMAGE_NAME = "my-frontend"
-$VERSION = "v3"
+$VERSION = "v4"
 
 $DEPLOYMENT = "frontend-deployment"
 $CONTAINER = "frontend"

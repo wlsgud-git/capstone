@@ -22,3 +22,5 @@ ssh -t -R 80:localhost:(port) proxy.tunnl.gg
 deployment 재시작 방법)
 
 kubectl rollout restart deployment/frontend-deployment
+
+전체 재배포 ) 

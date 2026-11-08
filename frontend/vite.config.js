@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
   server: {
     host: "0.0.0.0",
-    allowedHosts: [".tunnl.gg"],
+
+    allowedHosts: [".trycloudflare.com"],
 
     proxy: {
       "^/(auth|chatroom|question)": {

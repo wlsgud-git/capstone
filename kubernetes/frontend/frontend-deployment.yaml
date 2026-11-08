@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: dirjins/my-frontend:v3
+          image: dirjins/my-frontend:v4
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5173
