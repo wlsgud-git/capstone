@@ -28,14 +28,15 @@ export const ChatData = {
   // 채팅방 만들기
   createChatroom: async (phone_num, objective) => {
     try {
-      return prisma.chatroom.create({
+      const chatroom = await prisma.chatroom.create({
         data: {
           phone_num,
           objective,
         },
       });
+      return chatroom;
     } catch (err) {
-      throw err;
+      throw "채팅방 생성 중 오류가 발생하였습니다. 다시 시도해 주세요";
     }
   },
 

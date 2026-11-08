@@ -5,7 +5,7 @@ import axios from "axios";
 
 export class HttpClient {
   constructor() {
-    this.baseURL = import.meta.env.VITE_API_URL;
+    this.baseURL = import.meta.env.VITE_API_URL || "";
     this.client = axios.create({
       baseURL: this.baseURL,
       headers: {
@@ -26,6 +26,14 @@ export class HttpClient {
           localStorage.removeItem("user");
           window.location = "/resume";
           unauthorizedHandlers.forEach((fn) => fn());
+        }
+
+        if (
+          status == 429 &&
+          error.response?.data.message == "api토큰을 변경해야 합니다."
+        ) {
+          window.location = "https://aistudio.google.com/api-keys";
+          return;
         }
 
         return Promise.reject(error);

@@ -66,13 +66,14 @@ export const AuthData = {
 
       return result;
     } catch (err) {
-      throw err;
+      throw "이미 등록된 회원입니다.";
     }
   },
+
   // 유저 정보 가져오기
   getUserByPhone: async (phone_num) => {
     try {
-      return prisma.users.findUnique({
+      let user = await prisma.users.findUniqueOrThrow({
         where: { phone_num },
         include: {
           education: true,
@@ -81,19 +82,9 @@ export const AuthData = {
           skill: true,
         },
       });
+      return user;
     } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  },
-  //   회원가입
-  register: async (id, name, field, career, password) => {
-    try {
-      let query = `insert into users values (?,?,?, default)`;
-      let data = [id, name, password];
-      return dbPlay(query, data);
-    } catch (err) {
-      console.log(err);
+      throw "등록되지 않은 휴대번호 입니다.";
     }
   },
 };

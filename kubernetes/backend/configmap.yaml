@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: backend-config
 data:
-  CLIENT_HOST: "http://localhost:30000"
+  CLIENT_HOST: "https://crisp-eagle-48d3863f.tunnl.gg"

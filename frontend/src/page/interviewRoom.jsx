@@ -128,8 +128,7 @@ const Question = ({ info, chatroomId }) => {
                 )}
                 {/* <Loading /> */}
               </section>
-              https://www.saramin.co.kr/zf_user/search?search_area=main&search_done=y&search_optional_item=n&searchType=search&searchword=
-              {}
+
               <ul
                 className="feedback_ul"
                 style={{

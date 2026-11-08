@@ -23,7 +23,7 @@ export const ChatroomModal = () => {
       navigate(`/interview/${res.chatroom.id}`);
     },
     onError: (err) => {
-      alert(err.message);
+      alert("방 생성 중 오류가 발생하였습니다. 다시 시도해주세요.");
     },
   });
 

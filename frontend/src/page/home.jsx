@@ -48,7 +48,7 @@ export const Home = () => {
       navigate("/");
     },
     onError: (err) => {
-      alert(err.message);
+      alert("방 삭세 중 오류가 발생하였습니다. 다시 시도해 주세요.");
     },
   });
 
@@ -72,7 +72,7 @@ export const Home = () => {
         {/* 로고 */}
         <div className="logo_section">
           <span className="logo" onClick={() => navigate("/")}>
-            <i className="fa-solid fa-robot"></i>AI면접봉
+            <i className="fa-solid fa-robot"></i>AI면접봇
           </span>
 
           <button onClick={() => setSidebarOpen(!sidebarOpen)}>

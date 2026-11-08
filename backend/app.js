@@ -39,6 +39,5 @@ app.get("/{*splat}", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(config.http.client_host);
   console.log(`서버 실행 중: http://localhost:${port}`);
 });

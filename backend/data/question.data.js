@@ -40,7 +40,7 @@ export const QuestionData = {
         })),
       });
     } catch (err) {
-      throw err;
+      throw "질문 생성 중 오류가 발생하였습니다. 다시 시도해 주세요.";
     }
   },
 

@@ -11,7 +11,7 @@ export const ChatControl = {
       const chatrooms = await ChatServices.getChatrooms(req.phone_num);
       res.status(200).json({ chatrooms });
     } catch (err) {
-      res.status(500).json({ error: err.message });
+      res.status(500).json({ message: err });
     }
   },
 
@@ -22,7 +22,7 @@ export const ChatControl = {
       const chatroom = await ChatServices.getChatroom(req.phone_num, id);
       res.status(200).json({ chatroom });
     } catch (err) {
-      res.status(500).json({ error: err.message });
+      res.status(500).json({ message: err });
     }
   },
   // 채팅방 만들기
@@ -34,15 +34,10 @@ export const ChatControl = {
         objective,
       );
 
-      await QuestionServices.createQuestions(
-        req.phone_num,
-        chatroom.id,
-        objective,
-      );
-
       res.status(201).json({ chatroom });
     } catch (err) {
-      res.status(500).json({ error: err.message });
+      console.log(err);
+      res.status(429).json({ message: err });
     }
   },
   // 채팅방 삭제하기
@@ -53,7 +48,7 @@ export const ChatControl = {
 
       res.status(200).json({ message: "삭제가 완료되었습니다." });
     } catch (err) {
-      res.status(500).json({ error: err.message });
+      res.status(500).json({ message: err });
     }
   },
 };

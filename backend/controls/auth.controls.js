@@ -20,7 +20,7 @@ export const AuthControl = {
 
       res.status(200).json({ user });
     } catch (error) {
-      res.status(500).json({ err: error });
+      res.status(429).json({ message: error });
     }
   },
   // 유저 정보 가져오기
@@ -34,7 +34,7 @@ export const AuthControl = {
 
       res.status(200).json({ user });
     } catch (error) {
-      res.status(500).json({ err: error });
+      res.status(400).json({ message: error });
     }
   },
 };

@@ -10,10 +10,11 @@ export const questionControl = {
       const questions = await QuestionServices.getQuestions(id);
       return res.status(200).json({ questions });
     } catch (err) {
-      res.status(500).json({ error: err.message });
+      res.status(500).json({ message: err });
     }
   },
 
+  // 질문 생성
   createQuestions: async (req, res) => {
     let { chatroom_id, objective } = req.body;
     try {
@@ -24,8 +25,7 @@ export const questionControl = {
       );
       return res.status(200).json({ questions });
     } catch (err) {
-      console.log(err);
-      res.status(500).json({ error: err.message });
+      res.status(429).json({ message: err });
     }
   },
 
@@ -37,8 +37,7 @@ export const questionControl = {
       let feedback = await QuestionServices.getFeedback(question_id, answer);
       return res.status(200).json({ feedback });
     } catch (err) {
-      console.log(err);
-      res.status(500).json({ error: err.message });
+      res.status(429).json({ message: err });
     }
   },
 };

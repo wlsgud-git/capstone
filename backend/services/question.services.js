@@ -37,7 +37,6 @@ export const QuestionServices = {
       );
       return;
     } catch (err) {
-      console.log(err);
       throw err;
     }
   },

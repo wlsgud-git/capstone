@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
 import { userAtom } from "../store/userStore";
 import { Loading } from "../components/loading.component";
+import { axiosError } from "../network/error";
 
 export const Upload = () => {
   let navigate = useNavigate();
@@ -36,9 +37,10 @@ export const Upload = () => {
       let user = await auth_service.resumeUpload(formData);
       authFinish(user);
     } catch (err) {
-      alert(err);
+      alert(axiosError(err));
     }
     setLoading(false);
+    setResume(null);
   };
 
   // 폰번호로 유저 정보 가져오기 (이력서가 이미 등록되어 있는경우)
@@ -49,7 +51,7 @@ export const Upload = () => {
       let user = await auth_service.getUserByPhone(phone);
       authFinish(user);
     } catch (err) {
-      alert(err);
+      alert(axiosError(err));
     }
   };
 

@@ -72,16 +72,17 @@ create table skill(
 
       return user;
     } catch (err) {
-      console.log(err);
+      throw err;
     }
   },
 
   // 유저 정보 가져오기
   getUserByPhone: async (phone_num) => {
     try {
-      return AuthData.getUserByPhone(phone_num);
+      let user = await AuthData.getUserByPhone(phone_num);
+      return user;
     } catch (err) {
-      console.log(err);
+      throw err;
     }
   },
 };

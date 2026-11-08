@@ -18,6 +18,6 @@ export const aiPlay = async (prompt, file = null) => {
     const result = await machine.generateContent(answer);
     return result.response.text();
   } catch (err) {
-    throw err;
+    throw "api토큰을 변경해야 합니다.";
   }
 };
