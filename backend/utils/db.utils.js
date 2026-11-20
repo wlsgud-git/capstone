@@ -5,6 +5,6 @@ export async function dbPlay(query, info) {
     let data = await pool.query(query, info);
     return data[0];
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 }

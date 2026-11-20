@@ -35,6 +35,7 @@ export const ChatServices = {
               2.유저 정보를 토대로 희망분야인 ${objective}와 관련된 면접 질문을 5개로 순서대로 넘겨준다.
               3.새로 생성할 질문들은 절대 겹치지 않도록 하며 JSON 형태로 준다 
               4.key값은 questions라는 이름으로하고 그 value는 그 질문들 리스트를 배열로 준다.
+              5.질문 앞에 번호 붙이지 마 1. 이런식으로 그냥 순수 질문만 넘겨줘
             `;
       let result = await aiPlay(propmt);
       let info_json = await extractJson(result);

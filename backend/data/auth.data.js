@@ -4,6 +4,7 @@ import { dbPlay } from "../utils/db.utils.js";
 export const AuthData = {
   // 이력서 업로드
   uploadResume: async (data) => {
+    console.log("resume: data:", data);
     try {
       const result = await prisma.users.create({
         data: {
@@ -66,6 +67,7 @@ export const AuthData = {
 
       return result;
     } catch (err) {
+      console.log(err);
       throw "이미 등록된 회원입니다.";
     }
   },
